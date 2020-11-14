@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://max123:max123@cluster0.f4vcc.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "JWTsecret": "secret"
+}

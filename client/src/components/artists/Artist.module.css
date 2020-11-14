@@ -1,0 +1,92 @@
+:root {
+  --primary-color: #aa2b33;
+  --dark-color: #24141c;
+  --light-color: #f4f4f4;
+  --second-color: #cc6c74;
+  --third-color: #b2aaab;
+  --yellow-color: rgb(207, 207, 25);
+}
+
+.artistDetails {
+  letter-spacing: 1.5px;
+}
+
+.cardButtons {
+  padding: 0.1rem;
+}
+
+.projects {
+  background: antiquewhite;
+  color: var(--primary-color);
+  width: 350px;
+}
+
+.userInfo {
+  color: var(--primary-color);
+}
+
+.cardButtons button {
+  background: red;
+  color: rgb(241, 241, 44);
+  padding: 0.5rem;
+  margin-top: 50px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+#artistCard {
+  border: 1px dotted var(--primary-color);
+  font-weight: bolder;
+  color: rgb(32, 29, 29);
+}
+
+#artistName {
+  border: 1px dotted var(--primary-color);
+  border-radius: 7px;
+  padding: 5px;
+  font-weight: bolder;
+  color: var(--primary-color);
+  background: var(--dark-color);
+}
+
+.cardButtons button:hover {
+  color: red;
+  background: rgb(241, 241, 44);
+  padding: 0.5rem;
+  margin-top: 50px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid var(--dark-color);
+}
+
+#commentsBox {
+  background: var(--dark-color);
+  color: var(--light-color);
+  padding: 0.2rem;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+#commentsBox p {
+  font-size: 10px;
+  color: rgb(241, 241, 44);
+}
+
+#commentsShow {
+  background: var(--dark-color);
+  color: var(--light-color);
+  display: inline-block;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin: 0.5rem;
+  float: right;
+}
+
+#commentsShow:hover {
+  color: var(--yellow-color);
+  cursor: pointer;
+}

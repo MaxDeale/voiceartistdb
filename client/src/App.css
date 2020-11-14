@@ -1,0 +1,21 @@
+:root {
+  --primary-color: #aa2b33;
+  --dark-color: #24141c;
+  --light-color: #f4f4f4;
+  --second-color: #cc6c74;
+  --third-color: #b2aaab;
+}
+
+body {
+  background: var(--light-color);
+}
+
+form input:focus {
+  border-bottom-color: var(--primary-color) !important;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

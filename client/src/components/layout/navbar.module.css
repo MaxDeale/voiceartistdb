@@ -1,0 +1,115 @@
+:root {
+  --primary-color: #aa2b33;
+  --dark-color: #24141c;
+  --light-color: #f4f4f4;
+  --second-color: #cc6c74;
+  --third-color: #b2aaab;
+  --yellow-color: rgb(207, 207, 25);
+}
+
+#title {
+  color: var(--third-color);
+  font-family: "MuseoModerno";
+  letter-spacing: 0.1rem;
+}
+
+#version {
+  color: rgb(207, 207, 25);
+}
+
+#authLinks {
+  display: flex;
+  flex-direction: column;
+}
+
+#mic {
+  color: var(--primary-color);
+  border: 1px dotted var(--primary-color);
+  border-radius: 2%;
+  padding: 2rem;
+  margin: 4rem;
+}
+
+#navbar {
+  background: var(--dark-color);
+  color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addIcon {
+  font-size: 12px;
+}
+
+.navbarRight {
+  display: flex;
+  justify-content: center;
+  width: 45%;
+}
+
+.navbarLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarRight ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.navbarRight ul li a {
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.logIcon {
+  background: var(--primary-color);
+  color: var(--light-color);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 3px;
+  border: 1px solid black;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.logIcon2 {
+  background: var(--dark-color);
+  color: var(--primary-color);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 3px;
+  border: 1px solid var(--primary-color);
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.logIcon2 a {
+  color: var(--primary-color);
+}
+
+.logIcon a {
+  color: var(--light-color);
+}
+
+.logIcon a:hover {
+  color: var(--primary-color);
+}
+
+.logIcon2 a:hover {
+  color: rgb(241, 241, 44) !important;
+}
+
+.logIcon:hover {
+  background: var(--dark-color);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.logIcon2:hover {
+  background: var(--dark-color);
+  color: rgb(241, 241, 44) !important;
+  border-color: var(--third-color);
+}
