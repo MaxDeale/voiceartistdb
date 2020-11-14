@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Button, Card, Container } from "@material-ui/core";
 import { Modal, Row, Col } from "react-bootstrap";
-import CommentsModal from "./CommentsModal";
-import styles from "./Artist.module.css";
+import "./Artist.css";
 import Axios from "axios";
 
 const Artist = ({ artist }) => {
@@ -35,20 +34,45 @@ const Artist = ({ artist }) => {
 
   const showComments = () => {
     console.log(comments);
-    setShowCom(true);
+    var commentsPopup = document.getElementById("commentsPopup");
+    console.log(commentsPopup);
+    commentsPopup.classList.add("show");
+  };
+
+  const handleCommentsClose = () => {
+    setShowCom(false);
   };
 
   //ARTIST COMPONENT
 
   return (
     <>
-      <Card id={styles.artistCard} variant="outlined">
-        <CommentsModal show={showCom} />
-        <div className={styles.artistHeadings}>
+      <Card id="artistCard" variant="outlined">
+        {/* <Modal show={showCom} onHide={handleCommentsClose} centered>
+          <Modal.Header>
+            <Modal.Title>
+              {" "}
+              <strong>Artist Comments:</strong>{" "}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {comments.map((comment) => (
+              <ul>
+                <li>-"{comment}"</li>
+              </ul>
+            ))}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="warning" onClick={handleCommentsClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal> */}
+        <div className="artistInfo">
           {name && (
             <h4>
               Artist:{" "}
-              <span className={styles.userInfo} id={styles.artistName}>
+              <span className="userInfo" id="artistName">
                 {" "}
                 {name}
               </span>
@@ -58,7 +82,7 @@ const Artist = ({ artist }) => {
           {phone && (
             <h5>
               Phone:{" "}
-              <span className={styles.userInfo} stle={{ color: "#aa2b33" }}>
+              <span className="userInfo" stle={{ color: "#aa2b33" }}>
                 {" "}
                 {phone}
               </span>
@@ -66,22 +90,21 @@ const Artist = ({ artist }) => {
           )}
         </div>
 
-        <div className={styles.artistDetails}>
+        <div className="artistDetails">
           {email && (
             <h6>
-              Email: <span className={styles.userInfo}> {email}</span>
+              Email: <span className="userInfo"> {email}</span>
             </h6>
           )}
           {age && (
             <h6>
-              Age: <span className={styles.userInfo}> {age}</span>
+              Age: <span className="userInfo"> {age}</span>
             </h6>
           )}
           {availability && (
             <div>
               <h6>
-                Availability:{" "}
-                <span className={styles.userInfo}>{availability} </span>
+                Availability: <span className="userInfo">{availability} </span>
               </h6>
             </div>
           )}
@@ -89,7 +112,7 @@ const Artist = ({ artist }) => {
           {rating && (
             <div>
               <h6>
-                Rating: <span className={styles.userInfo}>{rating}</span>{" "}
+                Rating: <span className="userInfo">{rating}</span>{" "}
               </h6>
             </div>
           )}
@@ -97,10 +120,10 @@ const Artist = ({ artist }) => {
           {projects && (
             <h6>
               Projects:{" "}
-              <span className={styles.projects}>
+              <span className="projects">
                 {projects.map(function (project, i) {
                   return (
-                    <div key={i} className={styles.projects}>
+                    <div key={i} className="projects">
                       <p>
                         {i + 1} {project}
                       </p>
@@ -111,16 +134,24 @@ const Artist = ({ artist }) => {
             </h6>
           )}
 
-          <div className={styles.cardButtons}>
+          <div className="cardButtons">
             <button onClick={deleteArtist}>Delete Artist</button>
 
             <button onClick={editArtist}>Edit Artist</button>
 
-            <button onClick={showComments} id={styles.commentsShow}>
+            <button onClick={showComments} id="commentsShow">
               Show Comments
             </button>
+            <div id="commentsPopup" className="popup">
+              <span className="popuptext">
+                {comments.map((comment) => (
+                  <ul>
+                    <li>-"{comment}"</li>
+                  </ul>
+                ))}
+              </span>
+            </div>
           </div>
-          {comments && <div id={styles.commentsBox}>{comments}</div>}
         </div>
       </Card>
     </>
