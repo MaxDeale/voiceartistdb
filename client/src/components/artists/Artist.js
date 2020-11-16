@@ -33,14 +33,7 @@ const Artist = ({ artist }) => {
   const editArtist = () => {};
 
   const showComments = () => {
-    console.log(comments);
-    var commentsPopup = document.getElementById("commentsPopup");
-    console.log(commentsPopup);
-    commentsPopup.classList.add("show");
-  };
-
-  const handleCommentsClose = () => {
-    setShowCom(false);
+    setShowCom(!showCom);
   };
 
   //ARTIST COMPONENT
@@ -143,13 +136,16 @@ const Artist = ({ artist }) => {
               Show Comments
             </button>
             <div id="commentsPopup" className="popup">
-              <span className="popuptext">
-                {comments.map((comment) => (
-                  <ul>
-                    <li>-"{comment}"</li>
-                  </ul>
-                ))}
-              </span>
+              <h5>Comments:</h5>
+              {showCom && (
+                <span className="popuptext">
+                  {comments.map((comment) => (
+                    <ul>
+                      <li>-"{comment}"</li>
+                    </ul>
+                  ))}
+                </span>
+              )}
             </div>
           </div>
         </div>

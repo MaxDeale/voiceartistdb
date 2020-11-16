@@ -8,6 +8,7 @@ import Login from "./components/auth/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/routing/PrivateRoute";
+import Comments from "./components/layout/Comments";
 import Home from "./components/layout/Home";
 import About from "./components/layout/About";
 import NewArtistForm from "./components/layout/NewArtistForm";
@@ -30,6 +31,7 @@ function App() {
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/addartist" component={NewArtistForm} />
+                <Route path="/comments/:id" component={Comments} />
               </Switch>
             </div>
           </Fragment>
