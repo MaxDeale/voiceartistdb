@@ -24,12 +24,13 @@ const Artist = ({ artist }) => {
   const deleteArtist = async (e) => {
     e.preventDefault();
     let confirm = prompt(
-      "Type 'yes' to confirm deletiion of artist. (this will never be undone)"
+      "Type 'yes' to confirm deletion of artist. (this will never be undone)"
     );
     if (confirm === "yes") {
       try {
         await Axios.delete(`/api/artists/${_id}`);
         console.log(_id);
+        //reload page after delete
         window.location.reload();
       } catch (error) {
         console.error(error);
@@ -52,30 +53,10 @@ const Artist = ({ artist }) => {
   return (
     <>
       <Card id="artistCard" variant="outlined">
-        {/* <Modal show={showCom} onHide={handleCommentsClose} centered>
-          <Modal.Header>
-            <Modal.Title>
-              {" "}
-              <strong>Artist Comments:</strong>{" "}
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {comments.map((comment) => (
-              <ul>
-                <li>-"{comment}"</li>
-              </ul>
-            ))}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="warning" onClick={handleCommentsClose}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal> */}
         <div className="artistInfo">
           {name && (
             <h4>
-              Artist:{" "}
+              Artist{" "}
               <span className="userInfo" id="artistName">
                 {" "}
                 {name}
@@ -85,7 +66,7 @@ const Artist = ({ artist }) => {
 
           {phone && (
             <h5>
-              Phone:{" "}
+              Phone{" "}
               <span className="userInfo" stle={{ color: "#aa2b33" }}>
                 {" "}
                 {phone}
@@ -97,18 +78,18 @@ const Artist = ({ artist }) => {
         <div className="artistDetails">
           {email && (
             <h6>
-              Email: <span className="userInfo"> {email}</span>
+              Email <span className="userInfo"> {email}</span>
             </h6>
           )}
           {age && (
             <h6>
-              Age: <span className="userInfo"> {age}</span>
+              Age <span className="userInfo"> {age}</span>
             </h6>
           )}
           {availability && (
             <div>
               <h6>
-                Availability: <span className="userInfo">{availability} </span>
+                Availability <span className="userInfo">{availability} </span>
               </h6>
             </div>
           )}
@@ -116,7 +97,7 @@ const Artist = ({ artist }) => {
           {rating && (
             <div>
               <h6>
-                Rating: <span className="userInfo">{rating}</span>{" "}
+                Rating<span className="userInfo">{rating}</span>{" "}
               </h6>
             </div>
           )}
@@ -148,19 +129,25 @@ const Artist = ({ artist }) => {
             <button onClick={showComments} id="commentsShow">
               Show Comments
             </button>
+            <Link to="/addcomment/">
+              <button className="addcomprojBtn">Add Comment</button>
+            </Link>
             <button onClick={showProjects} id="commentsShow">
               Show Projects
             </button>
+            <button className="addcomprojBtn">Add Project</button>
             <div className="popup">
-              <h5>Comments:</h5>
               {showCom && (
-                <span className="popuptext">
-                  {comments.map((comment) => (
-                    <ul>
-                      <li>-"{comment}"</li>
-                    </ul>
-                  ))}
-                </span>
+                <div className="comments">
+                  <h5>Comments:</h5>
+                  <span>
+                    {comments.map((comment) => (
+                      <ul>
+                        <li>-"{comment}"</li>
+                      </ul>
+                    ))}
+                  </span>
+                </div>
               )}
             </div>
           </div>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import style from "./newArtistForm.module.css";
 import axios from "axios";
-import { StepLabel } from "@material-ui/core";
 
 const NewArtistForm = ({ history }) => {
   const [name, setName] = useState("");

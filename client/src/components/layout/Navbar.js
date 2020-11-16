@@ -13,8 +13,6 @@ const Navbar = ({ title, icon }) => {
     logout();
   };
 
-  const addHandle = () => {};
-
   const authLinks = (
     <Fragment>
       <p id={styles.helloText}>

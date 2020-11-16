@@ -105,3 +105,27 @@
   color: var(--yellow-color);
   cursor: pointer;
 }
+
+.comments {
+  background-color: #1b1a1a;
+  padding: 0.5rem;
+  color: rgb(223, 222, 222);
+}
+
+.comments h5 {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.addcomprojBtn {
+  background-color: green !important;
+  padding: 0.5rem;
+  margin-top: 50px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.addcomprojBtn:hover {
+  color: var(--yellow-color) !important;
+  border-color: var(--yellow-color) !important;
+}
