@@ -24,9 +24,8 @@
 }
 
 .addBtn {
-  background: var(--primary-color);
-  color: var(--light-color);
-  padding: 1rem;
+  background: var(--primary-color) !important;
+  color: var(--light-color) !important;
   width: 100%;
   margin: 1rem;
   border-radius: 3px;
@@ -36,14 +35,14 @@
 
 .addBtn:hover {
   background: var(--dark-color);
-  color: var(--light-color);
-  padding: 1rem;
+  color: var(--yellow-color) !important;
+
   width: 100%;
-  margin: 1rem;
+
   border-radius: 3px;
   border: 1px solid var(--primary-color);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: scale(0.9);
 }
 
 .cancelBtn {

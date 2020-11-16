@@ -12,6 +12,7 @@ import Comments from "./components/layout/Comments";
 import Home from "./components/layout/Home";
 import About from "./components/layout/About";
 import NewArtistForm from "./components/layout/NewArtistForm";
+import EditArtistForm from "./components/layout/EditArtistForm";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -31,6 +32,7 @@ function App() {
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/addartist" component={NewArtistForm} />
+                <Route exact path="/editartist" component={EditArtistForm} />
                 <Route path="/comments/:id" component={Comments} />
               </Switch>
             </div>

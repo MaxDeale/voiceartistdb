@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Card, Container } from "@material-ui/core";
 import { Modal, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./Artist.css";
 import Axios from "axios";
 
@@ -18,22 +19,32 @@ const Artist = ({ artist }) => {
   } = artist;
 
   let [showCom, setShowCom] = useState(false);
+  let [showproj, setShowProj] = useState(false);
 
   const deleteArtist = async (e) => {
     e.preventDefault();
-    try {
-      await Axios.delete(`/api/artists/${_id}`);
-      console.log(_id);
-      window.location.reload();
-    } catch (error) {
-      console.error(error);
+    let confirm = prompt(
+      "Type 'yes' to confirm deletiion of artist. (this will never be undone)"
+    );
+    if (confirm === "yes") {
+      try {
+        await Axios.delete(`/api/artists/${_id}`);
+        console.log(_id);
+        window.location.reload();
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      alert("Artist deletion cancelled");
     }
   };
 
-  const editArtist = () => {};
-
   const showComments = () => {
     setShowCom(!showCom);
+  };
+
+  const showProjects = () => {
+    setShowProj(!showproj);
   };
 
   //ARTIST COMPONENT
@@ -110,7 +121,7 @@ const Artist = ({ artist }) => {
             </div>
           )}
 
-          {projects && (
+          {showproj && (
             <h6>
               Projects:{" "}
               <span className="projects">
@@ -130,12 +141,17 @@ const Artist = ({ artist }) => {
           <div className="cardButtons">
             <button onClick={deleteArtist}>Delete Artist</button>
 
-            <button onClick={editArtist}>Edit Artist</button>
+            <Link to="/editartist">
+              <button>Edit Artist</button>
+            </Link>
 
             <button onClick={showComments} id="commentsShow">
               Show Comments
             </button>
-            <div id="commentsPopup" className="popup">
+            <button onClick={showProjects} id="commentsShow">
+              Show Projects
+            </button>
+            <div className="popup">
               <h5>Comments:</h5>
               {showCom && (
                 <span className="popuptext">

@@ -108,8 +108,8 @@ const EditArtistForm = ({ history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Button type="submit" variant="dark">
-            Add
+          <Button type="submit" className={style.addBtn}>
+            Confirm
           </Button>
         </Form>
       </div>

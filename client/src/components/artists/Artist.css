@@ -12,6 +12,25 @@
   text-align: left;
 }
 
+.artistDetails h6 {
+  display: flex;
+  width: 100%;
+  margin-top: 5%;
+  border-bottom: 1px solid #24141c;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.infoBit {
+  display: flex;
+}
+
+.userInfo {
+  color: var(--primary-color);
+  text-align: right;
+  margin-left: 2%;
+}
+
 .cardButtons {
   padding: 0.1rem;
 }
@@ -20,14 +39,6 @@
   background: antiquewhite;
   color: var(--primary-color);
   width: 350px;
-}
-
-.userInfo {
-  color: var(--primary-color);
-  width: 100%;
-  text-align: right;
-  font-weight: bold;
-  align-self: flex-end !important;
 }
 
 .cardButtons button {
