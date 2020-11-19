@@ -10,6 +10,8 @@
 .artistDetails {
   letter-spacing: 1.5px;
   text-align: left;
+  font-weight: bolder !important;
+  color: var(--dark-color);
 }
 
 .artistDetails h6 {
@@ -17,8 +19,7 @@
   width: 100%;
   margin-top: 5%;
   border-bottom: 1px solid #24141c;
-  margin: 1rem 0;
-  font-weight: bold;
+  margin: 2rem 0;
 }
 
 .infoBit {
@@ -32,7 +33,7 @@
 }
 
 .cardButtons {
-  padding: 0.1rem;
+  padding: 0.1rem 0;
 }
 
 .projects {
@@ -45,7 +46,6 @@
   background: red;
   color: rgb(241, 241, 44);
   padding: 0.5rem;
-  margin-top: 50px;
   border-radius: 5px;
   border: 1px solid white;
 }
@@ -109,11 +109,14 @@
 .comments {
   background-color: #1b1a1a;
   padding: 0.5rem;
+  border-radius: 3px;
+  border: 1px solid var(--second-color);
   color: rgb(223, 222, 222);
 }
 
 .comments h5 {
   font-weight: bolder;
+  font-family: "MuseoModerno";
   text-decoration: underline;
 }
 

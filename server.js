@@ -6,6 +6,7 @@ import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
 import artistRoutes from "./routes/artists.js";
 import commentRoutes from "./routes/comments.js";
+import projectRoutes from "./routes/projects.js";
 
 const app = express();
 // connect to DB
@@ -31,6 +32,7 @@ app.use("/api/artists", artistRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/comments", commentRoutes);
+app.use("/api/projects", projectRoutes);
 
 let port = process.env.PORT;
 

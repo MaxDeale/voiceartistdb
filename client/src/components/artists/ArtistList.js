@@ -11,13 +11,11 @@ const ArtistList = () => {
 
   const { artists, loading, getArtists } = artistContext;
   return (
-    <Row>
-      <>
-        {artists.map((artist) => (
-          <Artist artist={artist} key={artist._id} />
-        ))}
-      </>
-    </Row>
+    <>
+      {artists.map((artist) => (
+        <Artist artist={artist} key={artist._id} />
+      ))}
+    </>
   );
 };
 

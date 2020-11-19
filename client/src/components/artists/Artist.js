@@ -6,6 +6,8 @@ import style from "../layout/navbar.module.css";
 import "./Artist.css";
 import Axios from "axios";
 import AddCommentForm from "../layout/AddCommentForm";
+import AddProjectForm from "../layout/AddProjectForm";
+import { set } from "mongoose";
 
 const Artist = ({ artist }) => {
   const {
@@ -23,13 +25,14 @@ const Artist = ({ artist }) => {
   let [showCom, setShowCom] = useState(false);
   let [showproj, setShowProj] = useState(false);
   let [showAddComment, setShowAddComment] = useState(false);
+  let [showAddProject, setShowAddProject] = useState(false);
 
   const deleteArtist = async (e) => {
     e.preventDefault();
     let confirm = prompt(
       "Type 'yes' to confirm deletion of artist. (this will never be undone)"
     );
-    if (confirm === "yes") {
+    if (confirm === "yes" || confirm === "YES" || confirm === "Yes") {
       try {
         await Axios.delete(`/api/artists/${_id}`);
         console.log(_id);
@@ -49,6 +52,10 @@ const Artist = ({ artist }) => {
 
   const addComment = () => {
     setShowAddComment(!showAddComment);
+  };
+
+  const addProject = () => {
+    setShowAddProject(!showAddProject);
   };
 
   const showProjects = () => {
@@ -144,7 +151,10 @@ const Artist = ({ artist }) => {
             <button onClick={showProjects} id="commentsShow">
               Show Projects
             </button>
-            <button className="addcomprojBtn">Add Project</button>
+            {showAddProject && <AddProjectForm artistId={artist._id} />}
+            <button onClick={addProject} className="addcomprojBtn">
+              Add Project
+            </button>
             <div className="popup">
               {showCom && (
                 <div className="comments">

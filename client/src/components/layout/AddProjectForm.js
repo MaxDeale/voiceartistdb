@@ -4,25 +4,25 @@ import { Link } from "react-router-dom";
 import style from "./navbar.module.css";
 import axios from "axios";
 
-const AddCommentForm = ({ artistId }) => {
-  const [comment, setComment] = useState("");
+const AddProjectForm = ({ artistId }) => {
+  const [project, setProject] = useState("");
 
-  const handleCommentSubmit = async (e) => {
+  const handleProjectSubmit = async (e) => {
     e.preventDefault();
     // console.log(comment);
     // console.log(artistId);
     let confirm = prompt(
-      "are you sure you want to post this comment? type 'yes' if you are sure"
+      "are you sure you want to post this project? type 'yes' if you are sure"
     );
     if (confirm === "yes" || confirm === "YES" || confirm === "Yes") {
       //set up back end to handle comment route , posting the commen to specific artist by id
       try {
-        let newComment = {
-          comment: comment,
+        let newProject = {
+          project: project,
         };
-        await axios.post(`/api/comments/${artistId}`, newComment);
+        await axios.post(`/api/project/${artistId}`, newProject);
 
-        alert("Comment submitted");
+        alert("Project submitted");
       } catch (error) {
         console.error(error);
       }
@@ -34,17 +34,17 @@ const AddCommentForm = ({ artistId }) => {
   return (
     <div>
       <h1 style={{ fontFamily: "MuseoModerno", fontSize: "2rem" }}>
-        Add Comment
+        Add Project
       </h1>
       <Container>
-        <Form onSubmit={handleCommentSubmit}>
+        <Form onSubmit={handleProjectSubmit}>
           <Form.Group>
-            <Form.Label>Enter Comment</Form.Label>
+            <Form.Label>Enter Project</Form.Label>
             <Form.Control
               type="text"
-              value={comment}
-              placeholder="Enter Comment"
-              onChange={(e) => setComment(e.target.value)}
+              value={project}
+              placeholder="Enter Project"
+              onChange={(e) => setProject(e.target.value)}
             ></Form.Control>
           </Form.Group>
           <Button
@@ -60,4 +60,4 @@ const AddCommentForm = ({ artistId }) => {
   );
 };
 
-export default AddCommentForm;
+export default AddProjectForm;

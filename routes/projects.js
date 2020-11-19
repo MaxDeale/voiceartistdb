@@ -14,15 +14,15 @@ router.post("/:id", auth, async (req, res) => {
     });
   }
   // saving the artist data to a variable from the request body
-  const { comment } = req.body;
+  const { project } = req.body;
 
   try {
     let artist = await Artist.findById(req.params.id);
     console.log(artist._id);
-    await artist.comments.push(comment);
+    await artist.projects.push(project);
     await artist.save();
-    console.log("comment saved");
-    window.location.reload();
+    console.log("project saved");
+    // window.location.reload();
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
