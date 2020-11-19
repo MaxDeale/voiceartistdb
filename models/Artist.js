@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const ArtistSchema = mongoose.Schema({
   user: {
@@ -43,12 +43,16 @@ const ArtistSchema = mongoose.Schema({
   },
   comments: {
     type: Array,
-    required: false,
+    required: true,
+    default: [],
   },
   projects: {
     type: Array,
-    required: false,
+    required: true,
+    default: [],
   },
 });
 
-module.exports = mongoose.model("artist", ArtistSchema);
+const Artist = mongoose.model("Artist", ArtistSchema);
+
+export default Artist;

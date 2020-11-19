@@ -1,9 +1,13 @@
-const express = require("express");
-const connectDB = require("./config/db");
-const app = express();
-const path = require("path");
-const cors = require("cors");
+import express from "express";
+import { connectDB } from "./config/db.js";
+import cors from "cors";
+import path from "path";
+import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
+import artistRoutes from "./routes/artists.js";
+import commentRoutes from "./routes/comments.js";
 
+const app = express();
 // connect to DB
 connectDB();
 
@@ -23,9 +27,10 @@ app.get("/", (req, res) =>
 );
 
 // defining routes
-app.use("/api/artists", require("./routes/artists"));
-app.use("/api/users", require("./routes/users"));
-app.use("/api/auth", require("./routes/auth"));
+app.use("/api/artists", artistRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/comments", commentRoutes);
 
 let port = process.env.PORT;
 

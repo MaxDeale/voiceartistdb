@@ -1,9 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const auth = require("../middleware/auth");
-const { check, validationResult } = require("express-validator");
-const Artist = require("../models/Artist");
+import express from "express";
+import { auth } from "../middleware/auth.js";
+import { check, validationResult } from "express-validator";
+import Artist from "../models/Artist.js";
 
+const router = express.Router();
 // route to get all artists, it is a get request and is privately accessed by individual users, all users should be able to see all artists
 router.get("/", auth, async (req, res) => {
   try {
@@ -148,4 +148,4 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

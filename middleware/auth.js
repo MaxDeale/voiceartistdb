@@ -1,7 +1,7 @@
-const jwt = require("jsonwebtoken");
-const config = require("config");
+import jwt from "jsonwebtoken";
+import config from "config";
 
-module.exports = function (req, res, next) {
+const auth = function (req, res, next) {
   //get token from header
   const token = req.header("x-auth-token");
   //check if not token
@@ -21,3 +21,5 @@ module.exports = function (req, res, next) {
     });
   }
 };
+
+export { auth };

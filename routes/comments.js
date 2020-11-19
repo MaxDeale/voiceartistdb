@@ -1,5 +1,35 @@
-const express = require("express");
-const router = express.Router();
-const auth = require("../middleware/auth");
+import express from "express";
+import { auth } from "../middleware/auth.js";
+import Artist from "../models/Artist.js";
 
-router.post("/", auth, async (req, res) => {});
+import { check, validationResult } from "express-validator";
+
+const router = express.Router();
+// route to post a new comment, it is a post request and privately accessed
+router.post("/:id", auth, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      errors: errors.array(),
+    });
+  }
+  // saving the artist data to a variable from the request body
+  const { comment } = req.body;
+
+  try {
+    let artist = await Artist.findById(req.params.id);
+    console.log(artist._id);
+    // HOW TO SAVE COMMENT INTO PARTICULAR ARTIST???
+
+    await artist.comments.push(comment);
+
+    await artist.save();
+
+    console.log("comment saved");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+export default router;

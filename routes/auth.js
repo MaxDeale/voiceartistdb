@@ -1,14 +1,12 @@
-// route for user authentication
-const express = require("express");
-const router = express.Router();
-// using the bcryptJS npm package for password hashing
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const config = require("config");
-const auth = require("../middleware/auth");
-const { check, validationResult } = require("express-validator");
+import express from "express";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import config from "config";
+import { auth } from "../middleware/auth.js";
+import { check, validationResult } from "express-validator";
+import User from "../models/User.js";
 
-const User = require("../models/User");
+const router = express.Router();
 
 // route to get a logged in user , will by privately accessed
 router.get("/", auth, async (req, res) => {
@@ -85,4 +83,4 @@ router.post(
   }
 );
 
-module.exports = router;
+export default router;

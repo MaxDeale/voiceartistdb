@@ -8,7 +8,6 @@ import Login from "./components/auth/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/routing/PrivateRoute";
-import Comments from "./components/layout/Comments";
 import Home from "./components/layout/Home";
 import About from "./components/layout/About";
 import NewArtistForm from "./components/layout/NewArtistForm";

@@ -9,15 +9,18 @@ const AddCommentForm = ({ artistId }) => {
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    console.log(comment);
-    console.log(artistId);
+    // console.log(comment);
+    // console.log(artistId);
     let confirm = prompt(
       "are you sure you want to post this comment? type 'yes' if you are sure"
     );
     if (confirm === "yes") {
       //set up back end to handle comment route , posting the commen to specific artist by id
       try {
-        await axios.post(`/api/comments/${artistId}`, comment);
+        let newComment = {
+          comment: comment,
+        };
+        await axios.post(`/api/comments/${artistId}`, newComment);
       } catch (error) {
         console.error(error);
       }
