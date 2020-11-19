@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import style from "./navbar.module.css";
 import axios from "axios";
 
@@ -9,9 +10,9 @@ const AddCommentForm = ({ artistId }) => {
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     console.log(comment);
-
+    console.log(artistId);
     let confirm = prompt(
-      "are you sure you want to post this comment? type yes if you are sure"
+      "are you sure you want to post this comment? type 'yes' if you are sure"
     );
     if (confirm === "yes") {
       //set up back end to handle comment route , posting the commen to specific artist by id
@@ -44,6 +45,14 @@ const AddCommentForm = ({ artistId }) => {
           >
             Submit
           </Button>
+          <Link to="/">
+            <Button
+              className={style.logIcon}
+              style={{ margin: "0 10px", padding: "0 1rem" }}
+            >
+              Back
+            </Button>
+          </Link>
         </Form>
       </Container>
     </div>

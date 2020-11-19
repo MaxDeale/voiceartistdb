@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Button, Card, Container } from "@material-ui/core";
 import { Modal, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import style from "../layout/navbar.module.css";
 import "./Artist.css";
 import Axios from "axios";
+import AddCommentForm from "../layout/AddCommentForm";
 
 const Artist = ({ artist }) => {
   const {
@@ -20,6 +22,7 @@ const Artist = ({ artist }) => {
 
   let [showCom, setShowCom] = useState(false);
   let [showproj, setShowProj] = useState(false);
+  let [showAddComment, setShowAddComment] = useState(false);
 
   const deleteArtist = async (e) => {
     e.preventDefault();
@@ -42,6 +45,10 @@ const Artist = ({ artist }) => {
 
   const showComments = () => {
     setShowCom(!showCom);
+  };
+
+  const addComment = () => {
+    setShowAddComment(!showAddComment);
   };
 
   const showProjects = () => {
@@ -129,9 +136,11 @@ const Artist = ({ artist }) => {
             <button onClick={showComments} id="commentsShow">
               Show Comments
             </button>
-            <Link to="/addcomment/">
-              <button className="addcomprojBtn">Add Comment</button>
-            </Link>
+
+            <button onClick={addComment} className="addcomprojBtn">
+              Add Comment
+            </button>
+            {showAddComment && <AddCommentForm artistId={artist._id} />}
             <button onClick={showProjects} id="commentsShow">
               Show Projects
             </button>

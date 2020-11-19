@@ -34,8 +34,7 @@ function App() {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/addartist" component={NewArtistForm} />
                 <Route exact path="/editartist" component={EditArtistForm} />
-                <Route path="/addcomment/:id" component={AddCommentForm} />
-                <Route path="/comments/:id" component={Comments} />
+                <Route path="/addcomment" component={AddCommentForm} />
               </Switch>
             </div>
           </Fragment>
