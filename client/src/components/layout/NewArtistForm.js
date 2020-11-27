@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import style from "./newArtistForm.module.css";
 import axios from "axios";
 
@@ -111,6 +112,9 @@ const NewArtistForm = ({ history }) => {
           <Button className={style.addBtn} type="submit">
             Add
           </Button>
+          <Link to="/">
+            <Button className={style.addBtn}>Back</Button>
+          </Link>
         </Form>
       </div>
     </Container>

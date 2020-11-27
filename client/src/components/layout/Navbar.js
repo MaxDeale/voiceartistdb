@@ -58,7 +58,9 @@ const Navbar = ({ title, icon }) => {
   return (
     <div id={styles.navbar}>
       <div className={styles.navbarLeft}>
-        <i id={styles.mic} className="fas fa-microphone-alt fa-5x"></i>
+        <Link to="/">
+          <i id={styles.mic} className="fas fa-microphone-alt fa-5x"></i>
+        </Link>
 
         <div className="titleandVersion">
           <h1 id={styles.title}>{title}</h1>

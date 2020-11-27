@@ -4,7 +4,7 @@ import { Container, Form, Button } from "react-bootstrap";
 import style from "./newArtistForm.module.css";
 import axios from "axios";
 
-const EditArtistForm = ({ history }) => {
+const EditArtistForm = ({ history, artistId }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
   const [email, setEmail] = useState("");
@@ -13,9 +13,9 @@ const EditArtistForm = ({ history }) => {
   const [rating, setRating] = useState(0);
   const [availability, setAvailability] = useState("");
 
-  const addArtistHandler = async (e) => {
+  const editArtistHandler = async (e) => {
     e.preventDefault();
-    const newArtist = {
+    const editedArtist = {
       name: name,
       age: age,
       email: email,
@@ -26,19 +26,19 @@ const EditArtistForm = ({ history }) => {
     };
 
     try {
-      await axios.post("/api/artists", newArtist);
+      await axios.put(`/api/artists/${artistId}`, editedArtist);
+      console.log(editedArtist);
     } catch (error) {
       console.error(error);
     }
     history.push("/");
-    console.log(newArtist);
   };
 
   return (
     <Container>
       <div className={style.artistForm}>
         <h1>Edit Artist</h1>
-        <Form onSubmit={addArtistHandler}>
+        <Form onSubmit={editArtistHandler}>
           <Form.Group>
             <Form.Label>Name:</Form.Label>
             <Form.Control

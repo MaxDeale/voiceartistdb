@@ -18,7 +18,6 @@ router.get("/", auth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
-
 // route to post a new artist, it is a post request and privately accessed
 router.post(
   "/",
@@ -77,17 +76,7 @@ router.post(
 
 // route to update a artist, it is a put request, uses the router and auth middleware and is private
 router.put("/:id", auth, async (req, res) => {
-  const {
-    name,
-    age,
-    email,
-    phone,
-    gender,
-    years,
-    comments,
-    rating,
-    availability,
-  } = req.body;
+  const { name, age, email, phone, gender, rating, availability } = req.body;
   // build artist object
   const artistFields = {};
   if (name) artistFields.name = name;
@@ -95,16 +84,13 @@ router.put("/:id", auth, async (req, res) => {
   if (phone) artistFields.phone = phone;
   if (email) artistFields.email = email;
   if (gender) artistFields.gender = gender;
-  if (years) artistFields.years = years;
-  if (comments) artistFields.comments = comments;
-  if (projects) artistFields.projects = projects;
   if (rating) artistFields.rating = rating;
-  if (years) artistFields.availability = availability;
+  if (availability) artistFields.availability = availability;
 
   try {
     // using the id parameter to find the specific artist
     let artist = await Artist.findById(req.params.id);
-    if (!pokemon)
+    if (!artist)
       return res.status(404).json({
         msg: "Artist not found :(",
       });

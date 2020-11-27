@@ -20,7 +20,7 @@ const AddProjectForm = ({ artistId }) => {
         let newProject = {
           project: project,
         };
-        await axios.post(`/api/project/${artistId}`, newProject);
+        await axios.post(`/api/projects/${artistId}`, newProject);
 
         alert("Project submitted");
       } catch (error) {

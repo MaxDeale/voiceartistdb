@@ -22,7 +22,7 @@ router.post("/:id", auth, async (req, res) => {
     await artist.projects.push(project);
     await artist.save();
     console.log("project saved");
-    // window.location.reload();
+    window.location.reload();
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

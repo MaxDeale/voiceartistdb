@@ -7,7 +7,6 @@ import "./Artist.css";
 import Axios from "axios";
 import AddCommentForm from "../layout/AddCommentForm";
 import AddProjectForm from "../layout/AddProjectForm";
-import { set } from "mongoose";
 
 const Artist = ({ artist }) => {
   const {
